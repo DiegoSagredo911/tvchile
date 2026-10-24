@@ -1,0 +1,27 @@
+{
+  "name": "tv-chile-tizen",
+  "appName": "TV Chile",
+  "version": "1.0.0",
+  "description": "TV Chile - Canales Nacionales en Vivo para Samsung Tizen TV",
+  "packageType": "app",
+  "appPath": "index.html",
+  "keys": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "ChannelUp",
+    "ChannelDown",
+    "MediaPlayPause",
+    "MediaPlay",
+    "MediaPause",
+    "MediaStop"
+  ],
+  "license": "MIT"
+}
