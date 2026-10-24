@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget>
+	<previewjs>TV Chile</previewjs>
+	<ThumbIcon>icons/tvchile_106x86.png</ThumbIcon>
+	<BigThumbIcon>icons/tvchile_115x95.png</BigThumbIcon>
+	<ListIcon>icons/tvchile_85x70.png</ListIcon>
+	<BigListIcon>icons/tvchile_95x78.png</BigListIcon>
+	<category>Lifestyle</category>
+	<autoUpdate>n</autoUpdate>
+	<preicon></preicon>
+	<cpname></cpname>
+	<cplogo></cplogo>
+	<cpauthjs></cpauthjs>
+	<ver>1.0</ver>
+	<mgrver></mgrver>
+	<fullwidget>y</fullwidget>
+	<srcctl>y</srcctl>
+	<ticker>n</ticker>
+	<childlock>n</childlock>
+	<audiomute>y</audiomute>
+	<videomute>y</videomute>
+	<dcont>y</dcont>
+	<movie>y</movie>
+	<type>user</type>
+	<widgetname>TV Chile</widgetname>
+	<description>TV Chile - Canales Nacionales en Vivo</description>
+	<width>1280</width>
+	<height>720</height>
+	<mouse>y</mouse>
+	<author>
+		<name>TV Chile</name>
+		<email>support@m3u.cl</email>
+		<link>https://m3u.cl/</link>
+		<organization>TV Chile Team</organization>
+	</author>
+</widget>

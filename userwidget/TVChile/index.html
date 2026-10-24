@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>TV Chile - En Vivo</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Samsung Smart TV API obligatoria para evitar timeout de arranque -->
+    <script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/API/Widget.js"></script>
+    <script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/API/TVKeyValue.js"></script>
+    <script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/API/Plugin.js"></script>
+</head>
+<body onload="init();">
+    <!-- Objetos nativos de Samsung Smart TV -->
+    <object id="pluginObjectNNavi" border="0" classid="clsid:SAMSUNG-INFOLINK-NNAVI" style="opacity:0.0;width:0px;height:0px;position:absolute;"></object>
+    <object id="pluginPlayer" border="0" classid="clsid:SAMSUNG-INFOLINK-PLAYER" style="position:absolute;left:0px;top:0px;width:1280px;height:720px;z-index:1;"></object>
+
+    <!-- Contenedor Principal de Video -->
+    <div id="player-container" class="player-container">
+        <video id="video-player" playsinline autoplay></video>
+        
+        <!-- Indicador de Carga / Búfer -->
+        <div id="loader" class="loader-container">
+            <div class="spinner"></div>
+            <div class="loader-text">Conectando con la señal...</div>
+        </div>
+
+        <!-- Mensaje de Error / Canal no disponible -->
+        <div id="error-banner" class="error-banner hide">
+            <div class="error-icon">!</div>
+            <div class="error-title">Canal temporalmente no disponible</div>
+            <div class="error-subtitle">Presione Arriba o Abajo en el control para cambiar de canal</div>
+        </div>
+
+        <!-- Indicador de sintonización numérica directa (solo visible al teclear números) -->
+        <div id="number-input-badge" class="number-input-badge hide">
+            <span class="number-label">CANAL</span>
+            <span id="number-input-value" class="number-digits">--</span>
+        </div>
+
+        <!-- OSD: Banner Informativo Inferior (se muestra 4 segundos al cambiar) -->
+        <div id="osd-banner" class="osd-banner">
+            <div class="osd-content">
+                <div id="osd-number" class="osd-number">01</div>
+                <div class="osd-logo-wrapper">
+                    <img id="osd-logo" class="osd-logo" src="" alt="" onerror="this.style.display='none'">
+                </div>
+                <div class="osd-info">
+                    <div class="osd-header">
+                        <span id="osd-name" class="osd-name">Cargando canal...</span>
+                        <span class="live-badge">EN VIVO</span>
+                    </div>
+                    <div class="osd-meta">
+                        <span id="osd-group" class="osd-group">Televisión Chilena</span>
+                        <span class="osd-hint">Use las flechas para cambiar</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Barra de progreso estética -->
+            <div class="osd-progress-line"></div>
+        </div>
+
+        <!-- Barra inferior permanente de ayuda rápida (se oculta tras 4s) -->
+        <div id="quick-help" class="quick-help">
+            <span>Arriba/Abajo Cambiar Canal</span>
+            <span class="sep">•</span>
+            <span>OK Guía de Canales</span>
+            <span class="sep">•</span>
+            <span>0-9 Sintonizar Número</span>
+            <span class="sep">•</span>
+            <span>VOLVER Ocultar</span>
+        </div>
+    </div>
+
+    <!-- Guía de Canales (Menú Lateral Deslizable para Adultos Mayores) -->
+    <div id="guide-drawer" class="guide-drawer hide">
+        <div class="guide-header">
+            <div class="guide-title-box">
+                <h1 class="guide-title">Guía de Canales</h1>
+                <span id="channel-counter" class="guide-counter">385 canales</span>
+            </div>
+            <div class="guide-instructions">
+                Navegue con las flechas y presione <strong>OK</strong> para sintonizar
+            </div>
+        </div>
+
+        <!-- Lista de Canales con Alto Contraste -->
+        <div id="channels-list" class="channels-list" tabindex="0">
+            <!-- Rellenado dinámicamente solo al abrir la guía -->
+        </div>
+    </div>
+
+    <!-- Scripts de la Aplicación (100% compatibles ES5) -->
+    <script type="text/javascript" src="js/channels_fallback.js"></script>
+    <script type="text/javascript" src="js/tizen-keys.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>
